@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 4 Years ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Sacramento&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5, #ffffff);
+      overflow-x: hidden;
+      color: #444;
+    }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.35;
+      z-index: 0;
+      animation: twinkle 5s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 0.5; }
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 105, 180, 0.4);
+      animation: floatHeart linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes floatHeart {
+      from {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 1;
+      }
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      color: #ff4d88;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .typing {
+      font-size: 1.1rem;
+      text-align: center;
+      max-width: 700px;
+      min-height: 40px;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    .name {
+      margin-top: 20px;
+      font-family: 'Sacramento', cursive;
+      font-size: 2rem;
+      color: #ff6b9a;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.3);
+      backdrop-filter: blur(10px);
+      color: #ff4d88;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(255, 105, 180, 0.2);
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+    }
+
+    .music-player button {
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(10px);
+      color: #ff4d88;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 40px;
+    }
+
+    .polaroid {
+      background: rgba(255,255,255,0.5);
+      padding: 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transform: rotate(-2deg);
+      transition: 0.3s;
+    }
+
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.03);
+    }
+
+    .polaroid img,
+    .polaroid video {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .caption {
+      margin-top: 12px;
+      text-align: center;
+      font-family: 'Sacramento', cursive;
+      font-size: 1.5rem;
+      color: #ff6b9a;
+    }
+
+    .letter {
+      max-width: 850px;
+      background: rgba(255,255,255,0.35);
+      backdrop-filter: blur(12px);
+      border-radius: 30px;
+      padding: 40px 30px;
+      line-height: 1.9;
+      font-size: 1.05rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      color: #555;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.7rem;
+      color: #ff4d88;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .secret-section {
+      background: linear-gradient(to bottom, #1a0f1f, #2c1639);
+      color: white;
+    }
+
+    .password-box {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(15px);
+      padding: 30px;
+      border-radius: 25px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .password-box input {
+      margin-top: 20px;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 1.2rem;
+      outline: none;
+    }
+
+    .hidden-message {
+      display: none;
+      max-width: 800px;
+      text-align: center;
+      line-height: 2;
+      font-size: 1.1rem;
+      margin-top: 40px;
+      color: #fff0f6;
+    }
+
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom, #ffd6e7, #fff0f5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: column;
+      transition: opacity 1s ease;
+    }
+
+    .loading-text {
+      font-size: 1.3rem;
+      color: #ff4d88;
+      margin-top: 20px;
+    }
+
+    @media(max-width:768px){
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .letter {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="loading-screen" id="loadingScreen">
+  <div style="font-size:3rem;">❤️</div>
+  <div class="loading-text" id="loadingText">Loading something beautiful for you...</div>
+</div>
+
+<div class="stars"></div>
+<div class="hearts" id="hearts"></div>
+
+<div class="music-player">
+  <button onclick="toggleMusic()">🎵 Our Songs</button>
+</div>
+
+<audio id="music" loop>
+  <source src="music/song1.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+  <h1>Happy 4 Years of Us ❤️</h1>
+
+  <div class="typing" id="typing"></div>
+
+  <div class="name">For My Pretty Girl, Shradha ✨</div>
+
+  <button class="btn" onclick="document.getElementById('memories').scrollIntoView()">
+    Enter Our Little World
+  </button>
+</section>
+
+<section id="memories">
+  <h2 class="section-title">Our Beautiful Memories ✨</h2>
+
+  <div class="gallery">
+
+    <div class="polaroid">
+      <img src="images/photo1.jpg">
+      <div class="caption">Still my favorite smile ❤️</div>
+    </div>
+
+    <div class="polaroid">
+      <img src="images/photo2.jpg">
+      <div class="caption">4 years later and still butterflies.</div>
+    </div>
+
+    <div class="polaroid">
+      <video controls>
+        <source src="videos/video1.mp4" type="video/mp4">
+      </video>
+      <div class="caption">One of my favorite memories.</div>
+    </div>
+
+    <div class="polaroid">
+      <img src="images/photo3.jpg">
+      <div class="caption">You made life softer.</div>
+    </div>
+
+    <div class="polaroid">
+      <img src="images/photo4.jpg">
+      <div class="caption">Home started feeling like you.</div>
+    </div>
+
+    <div class="polaroid">
+      <video controls>
+        <source src="videos/video2.mp4" type="video/mp4">
+      </video>
+      <div class="caption">Every moment with you feels special.</div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">A Little Letter For You 💌</h2>
+
+  <div class="letter">
+    From the day we confessed to each other on 13th May, life honestly started feeling different in the best way possible. It’s crazy to think how we spent almost 3 years loving each other through screens, calls, texts, late night conversations and still somehow stayed this close.
+
+    <br><br>
+
+    And then finally, after all those years of only seeing each other online, you came to Pune on 11th September 2024. I still remember how nervous and excited I was before meeting you for the first time.
+
+    <br><br>
+
+    Every memory with you became one of my favorite parts of life. Ramdara, Botanical Garden, Ganpati darshan, Latur trip… everything feels beautiful because you were there.
+
+    <br><br>
+
+    Now that we finally get to meet more often, life genuinely feels happier. And somehow after 4 years… I still get butterflies every single time I see you.
+
+    <br><br>
+
+    Thank you for being my comfort, my safest place and my favorite person.
+
+    <br><br>
+
+    I still fall for you everyday ❤️
+  </div>
+</section>
+
+<section class="secret-section">
+
+  <h2 class="section-title" style="color:white;">One Last Thing... ✨</h2>
+
+  <button class="btn" onclick="openSecret()">Open Secret Message ❤️</button>
+
+  <div id="secretContent" style="display:none; margin-top:40px;">
+
+    <div class="loading-text" id="secretLoading"></div>
+
+    <div class="password-box" id="passwordBox" style="display:none;">
+      <h2>Only you can unlock this ❤️</h2>
+      <p style="margin-top:10px;">Type our anniversary date</p>
+
+      <input type="password" id="passwordInput" maxlength="4" placeholder="_ _ _ _">
+
+      <button class="btn" onclick="checkPassword()">Unlock ✨</button>
+    </div>
+
+    <div class="hidden-message" id="hiddenMessage">
+      <p>
+        Thank you for loving me through every version of myself.<br><br>
+
+        Thank you for being there for me every single time.<br><br>
+
+        It's been 4 years and somehow I still get excited to see you, still wait for you, still get butterflies because of you.<br><br>
+
+        No matter where life takes us next, my favorite place will always be beside you.<br><br>
+
+        And if I had to choose again, in every lifetime, I'd still choose you.<br><br>
+
+        I love you, Shradha ❤️
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+
+const typingText = "And somehow... after 4 years, I still get butterflies around you ❤️";
+const typingElement = document.getElementById('typing');
+let i = 0;
+
+function typeText() {
+  if (i < typingText.length) {
+    typingElement.innerHTML += typingText.charAt(i);
+    i++;
+    setTimeout(typeText, 60);
+  }
+}
+
+window.onload = () => {
+  const texts = [
+    "Loading something beautiful for you...",
+    "Collecting 4 years of memories ❤️",
+    "Almost ready, Shradha ✨"
+  ];
+
+  let index = 0;
+
+  const interval = setInterval(() => {
+    document.getElementById('loadingText').innerText = texts[index];
+    index++;
+
+    if(index >= texts.length){
+      clearInterval(interval);
+
+      setTimeout(() => {
+        document.getElementById('loadingScreen').style.opacity = '0';
+
+        setTimeout(() => {
+          document.getElementById('loadingScreen').style.display = 'none';
+          typeText();
+        }, 1000);
+      }, 1000);
+    }
+  }, 1800);
+};
+
+function toggleMusic() {
+  const music = document.getElementById('music');
+
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+}
+
+function createHearts() {
+  const heartsContainer = document.getElementById('hearts');
+
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '❤';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+    heart.style.fontSize = (12 + Math.random() * 18) + 'px';
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 10000);
+  }, 800);
+}
+
+createHearts();
+
+function openSecret() {
+  document.getElementById('secretContent').style.display = 'block';
+
+  const loadingTexts = [
+    "Opening the most special part...",
+    "One final memory before the night ends ❤️",
+    "Almost there, Shradha ✨"
+  ];
+
+  let index = 0;
+
+  const interval = setInterval(() => {
+    document.getElementById('secretLoading').innerText = loadingTexts[index];
+    index++;
+
+    if(index >= loadingTexts.length){
+      clearInterval(interval);
+
+      setTimeout(() => {
+        document.getElementById('secretLoading').style.display = 'none';
+        document.getElementById('passwordBox').style.display = 'block';
+      }, 1000);
+    }
+  }, 1800);
+}
+
+function checkPassword() {
+  const password = document.getElementById('passwordInput').value;
+
+  if(password === '1305') {
+    document.getElementById('passwordBox').style.display = 'none';
+    document.getElementById('hiddenMessage').style.display = 'block';
+  } else {
+    alert('Wrong password ❤️');
+  }
+}
+
+</script>
+
+</body>
+  </html>
