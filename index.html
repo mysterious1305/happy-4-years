@@ -284,6 +284,14 @@ Loading something for you....
 
 <div class="stars"></div>
 <div class="hearts" id="hearts"></div>
+  
+<audio id="bgMusic" loop>
+<source src="https://files.catbox.moe/hyhcks.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="secretMusic" loop>
+<source src="https://files.catbox.moe/id4urk.mp3" type="audio/mpeg">
+</audio>
 
 <section class="hero">
 
@@ -493,6 +501,25 @@ const typingText =
 "1460+ days of loving you... and still counting ❤️";
 
 let i=0;
+  
+const bgMusic = document.getElementById("bgMusic");
+const secretMusic = document.getElementById("secretMusic");
+
+let musicStarted = false;
+
+function startMusic(){
+
+if(!musicStarted){
+
+bgMusic.volume = 0.6;
+
+bgMusic.play();
+
+musicStarted = true;
+
+}
+
+}
 
 function typeText(){
 if(i < typingText.length){
@@ -538,6 +565,8 @@ typeText();
 }
 
 },1800);
+  
+document.body.addEventListener("click",startMusic,{once:true});
 
 };
 
@@ -616,6 +645,12 @@ if(password==="1305"){
 document.getElementById("passwordBox").style.display="none";
 
 document.getElementById("hiddenMessage").style.display="block";
+  
+bgMusic.pause();
+
+secretMusic.volume = 0.6;
+
+secretMusic.play();
 
 }else{
 
