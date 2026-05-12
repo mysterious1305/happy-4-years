@@ -20,6 +20,8 @@ scroll-behavior:smooth;
 body{
 font-family:'Poppins',sans-serif;
 background:linear-gradient(to bottom,#ffe6f0,#fff5fa,#ffffff);
+background-size:400% 400%;
+animation:bgMove 15s ease infinite;
 overflow-x:hidden;
 color:#444;
 }
@@ -38,6 +40,18 @@ opacity:0.35;
 pointer-events:none;
 z-index:0;
 animation:twinkle 5s infinite alternate;
+}
+
+@keyframes bgMove{
+0%{
+background-position:0% 50%;
+}
+50%{
+background-position:100% 50%;
+}
+100%{
+background-position:0% 50%;
+}
 }
 
 @keyframes twinkle{
@@ -289,6 +303,21 @@ text-align:center;
 color:#ffd6e8;
 opacity:1;
 }
+  
+.tiny-ending{
+margin-top:14px;
+font-size:1rem;
+letter-spacing:2px;
+color:#ffe3ee;
+opacity:0.9;
+font-family:'Poppins',sans-serif;
+}
+  
+.hero h1,
+.section-title,
+.goodnight-message{
+text-shadow:0 0 18px rgba(255,120,170,0.25);
+}
 
 </style>
 </head>
@@ -315,7 +344,7 @@ Loading something for you....
 
 <section class="hero">
 
-<h1>Happy 4 Years Anniversary 🩷</h1>
+<h1>Happy 4th Anniversary 🩷</h1>
 
 <div class="typing" id="typing"></div>
 
@@ -463,7 +492,7 @@ Open Secret Message ❤️
 
 <div class="password-box" id="passwordBox" style="display:none;">
 
-<h2>Kahi thode last lines 🩷</h2>
+<h2>Just a Small Message for You 🩷</h2>
 
 <p style="margin-top:10px;">
 Type our anniversary date
@@ -512,12 +541,17 @@ That's it, Byeee 😚😚.
 </div>
 
 </div>
-
-</section>
   
 <div class="goodnight-message">
 Made with all my love, only for you ❤️
+
+<div class="tiny-ending">
+13 May 2022 • Forever ♾️
 </div>
+
+</div>
+
+</section>
 
 <script>
 
@@ -670,11 +704,39 @@ document.getElementById("passwordBox").style.display="none";
 
 document.getElementById("hiddenMessage").style.display="block";
   
+let fadeOut = setInterval(()=>{
+
+if(bgMusic.volume > 0.05){
+
+bgMusic.volume -= 0.05;
+
+}else{
+
+clearInterval(fadeOut);
+
 bgMusic.pause();
 
-secretMusic.volume = 0.1;
+secretMusic.volume = 0;
 
 secretMusic.play();
+
+let fadeIn = setInterval(()=>{
+
+if(secretMusic.volume < 0.4){
+
+secretMusic.volume += 0.01;
+
+}else{
+
+clearInterval(fadeIn);
+
+}
+
+},200);
+
+}
+
+},200);
 
 }else{
 
