@@ -269,6 +269,26 @@ font-size:1rem;
 }
 
 }
+  
+.memory-card{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.memory-card.show{
+opacity:1;
+transform:translateY(0);
+}
+  
+.goodnight-message{
+margin-top:60px;
+font-family:'Dancing Script',cursive;
+font-size:2rem;
+text-align:center;
+color:#ffd6e8;
+opacity:1;
+}
 
 </style>
 </head>
@@ -452,7 +472,7 @@ Type our anniversary date
 <input type="password" id="passwordInput" maxlength="4" placeholder="_ _ _ _">
 
 <button class="btn" onclick="checkPassword()">
-Dakhav chal tejya yeda bheja ✨
+Unlock ✨
 </button>
 
 </div>
@@ -494,6 +514,10 @@ That's it, Byeee 😚😚.
 </div>
 
 </section>
+  
+<div class="goodnight-message">
+Made with all my love, only for you ❤️
+</div>
 
 <script>
 
@@ -648,7 +672,7 @@ document.getElementById("hiddenMessage").style.display="block";
   
 bgMusic.pause();
 
-secretMusic.volume = 0.6;
+secretMusic.volume = 0.1;
 
 secretMusic.play();
 
@@ -659,9 +683,28 @@ alert("Wrong password ❤️, fkta 4 numbers enter kar (Date & Month)");
 }
 
 }
+  
+const cards = document.querySelectorAll(".memory-card");
+
+const observer = new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:0.2});
+
+cards.forEach(card=>{
+observer.observe(card);
+});
 
 </script>
-
 
 
 </body>
